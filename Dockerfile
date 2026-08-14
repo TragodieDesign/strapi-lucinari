@@ -28,12 +28,12 @@ COPY --from=build /app/node_modules ./node_modules
 
 COPY --from=build /app/dist/config ./config
 COPY --from=build /app/dist/src ./src
+COPY --from=build /app/dist/build ./build
+
 COPY --from=build /app/public ./public
 
-# O Strapi precisa desse diretório em runtime
 COPY --from=build /app/database ./database
 
-# Diretórios que precisam ser graváveis pelo usuário node
 RUN mkdir -p /app/database/migrations \
     /app/public/uploads \
     && chown -R node:node /app
