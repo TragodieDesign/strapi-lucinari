@@ -8,6 +8,8 @@ RUN npm ci
 
 COPY . .
 
+# Permite que o Node utilize mais memória durante a compilação
+# do painel administrativo.
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 
 RUN npm run build
@@ -25,14 +27,22 @@ ENV NODE_OPTIONS="--max-old-space-size=3072"
 COPY --from=build /app/package.json ./package.json
 COPY --from=build /app/package-lock.json ./package-lock.json
 COPY --from=build /app/node_modules ./node_modules
-COPY --from=build /app/dist ./dist
-COPY --from=build /app/public ./public
-COPY --from=build /app/server.js ./server.js
 
-RUN mkdir -p /app/public/uploads
+# Copia os arquivos compilados pelo TypeScript
+COPY --from=build /app/dist/config ./config
+COPY --from=build /app/dist/src ./src
+
+# Arquivos públicos do Strapi
+COPY --from=build /app/public ./public
+
+# O Strapi precisa criar/alterar migrations e uploads em runtime.
+# Garantimos que o usuário node seja o proprietário desses arquivos.
+RUN mkdir -p /app/database/migrations \
+    /app/public/uploads \
+    && chown -R node:node /app
 
 USER node
 
 EXPOSE 1337
 
-CMD ["node", "server.js"]
+CMD ["npm", "run", "start"]
