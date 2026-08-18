@@ -1,0 +1,84 @@
+{
+  "kind": "singleType",
+  "collectionName": "company_infos",
+  "info": {
+    "singularName": "company-info",
+    "pluralName": "company-infos",
+    "displayName": "company-info"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "companyName": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "mail": {
+      "type": "email"
+    },
+    "siteLogo": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "whatsapp": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    },
+    "linkedin": {
+      "type": "string"
+    },
+    "facebookPage": {
+      "type": "string"
+    },
+    "mainColor": {
+      "type": "string"
+    },
+    "secondColor": {
+      "type": "string"
+    },
+    "highlights": {
+      "type": "string"
+    },
+    "blank": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "mainAltColor": {
+      "type": "string"
+    },
+    "mainBanner": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "mainCarousel": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

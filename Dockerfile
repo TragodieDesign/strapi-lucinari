@@ -10,7 +10,7 @@ COPY . .
 
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 
-RUN npm run develop
+RUN npm run build
 
 
 FROM node:22-bookworm-slim AS production
