@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "glossaries",
+  "info": {
+    "singularName": "glossary",
+    "pluralName": "glossaries",
+    "displayName": "Glossary"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "term": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "short_definition": {
+      "type": "string"
+    },
+    "definition": {
+      "type": "blocks"
+    }
+  }
+}

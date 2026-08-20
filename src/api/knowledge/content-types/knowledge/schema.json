@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "knowledges",
+  "info": {
+    "singularName": "knowledge",
+    "pluralName": "knowledges",
+    "displayName": "Knowledge"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "excerpt": {
+      "type": "text"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "featured": {
+      "type": "boolean"
+    },
+    "published_date": {
+      "type": "datetime"
+    }
+  }
+}
